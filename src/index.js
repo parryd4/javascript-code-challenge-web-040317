@@ -1,14 +1,21 @@
+// Main Focus: Separate Concerns
+
 $(document).ready(function(){
-  // your code here!
+
   var challengeComments = new CommentList()
 
   $('#note-form').on('submit', function(e){
     e.preventDefault()
-//    debugger
-//    challengeComments.addComment(document.getElementsByTagName('input')[0].value)
+
     challengeComments.addComment($('#new-comment').val())
-  //  debugger
+
     $('#comment-list').html(challengeComments.render())
-    //didnt clear form but ok
+  //  $('#note-form').reset()
   })
 })
+
+/*
+  1. should I declare challengeComments in the doc ready funciton? Where else could that happen?
+  2. I couldn't get line 10 to work when I put it in its own function and called it
+  3. how to reset a form?
+*/

@@ -2,19 +2,20 @@ class CommentList {
   constructor() {
     this.comments = []
   }
+  getList(){
+    // var list = this.comments.map(comment => comment.render()).join("")
+    // return `<ul>${list}</ul>`
+    return `<ul>${this.comments.map(comment => comment.render()).join("")}</ul>`
+  }
   render(){
-    var list = `<ul>`
-  //  debugger
-    for(let i = 0; i < this.comments.length ; i++){
-      list += this.comments[i].render()
-    }
-    list += `</ul>`
-  ///  debugger
-    return list
+    return `${this.getList()}`
   }
   addComment(comment){
-    this.comments.push(
-      new Comment(comment)
-    )
+    this.comments.push( new Comment(comment) )
   }
 }
+
+/*
+  1. getList() skipped assigning a list and returned the map as a string formatted with <ul>
+  2. if I wanted to be consistent with comment.js's render method, I could not add the <ul>s in getList(), but not sure which concern belongs to which method
+*/
