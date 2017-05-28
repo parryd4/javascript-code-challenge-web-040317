@@ -10,7 +10,7 @@ $(document).ready(function(){
     challengeComments.addComment($('#new-comment').val())
 
     $('#comment-list').html(challengeComments.render())
-  //  $('#note-form').reset()
+    $('#new-comment').val("") // $('note-form').reset() ??
   })
 })
 
