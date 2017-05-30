@@ -7,13 +7,24 @@ $(document).ready(function(){
   $('#note-form').on('submit', function(e){
     e.preventDefault()
 
-    challengeComments.addComment($('#new-comment').val())
-
-    $('#comment-list').html(challengeComments.render())
-    $('#new-comment').val("") // $('note-form').reset() ??
+    formComment(challengeComments)
+    listRender(challengeComments)
+    resetForm()
   })
 })
 
+function formComment(list){
+  list.addComment($('#new-comment').val())
+}
+
+function resetForm(){
+  // $('#note-form').reset() ??
+  $('#new-comment').val("")
+}
+
+function listRender(list){
+  $('#comment-list').html(list.render())
+}
 /*
   1. should I declare challengeComments in the doc ready funciton? Where else could that happen?
   2. I couldn't get line 10 to work when I put it in its own function and called it
